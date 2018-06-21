@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  todoItem: string;
+  save(todo: HTMLInputElement) {
+    if (todo.value.trim() === '') {
+      return;
+    }
+    this.todoItem = todo.value;
+    todo.value = '';
+  }
 }
