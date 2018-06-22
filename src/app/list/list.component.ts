@@ -7,7 +7,10 @@ import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  @Input() todoItem: string;
+  @Input() set todoItem(item: string) {
+    console.log('item', item);
+    this.listItems.push(item);
+  }
   listItems = [
     'A', 'b', 'c', 'd', 'e', 'f'
   ];
@@ -16,9 +19,5 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    this.listItems.push(changes['todoItem'].currentValue)
   }
 }
